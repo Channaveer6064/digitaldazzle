@@ -1,0 +1,33 @@
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 80px;
+  background: var(--mainBlue);
+  align-items: center;
+  justify-content: space-around;
+  color: var(--lightBlue);
+  text-transform: capitalize;
+}
+
+.navbar-brand {
+  margin-left: 0;
+
+  display: flex;
+  justify-content: space-around;
+}
+.navbar-links-container {
+  display: flex;
+  width: 250px;
+  justify-content: space-around;
+}
+.navbar-links,
+.brand-link {
+  color: var(--lightBlue);
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 760px) {
+  .navbar-search {
+  }
+}

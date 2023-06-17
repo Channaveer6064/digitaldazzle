@@ -1,0 +1,85 @@
+.card {
+  width: auto;
+  max-height: 350px;
+}
+.card:hover {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+}
+.card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 320px;
+  width: 200px;
+
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  border-radius: 5px;
+}
+.card-img {
+  height: 50%;
+  width: 100%;
+  transition: 1s;
+}
+.card-img:hover {
+  transform: scale(1.1);
+  opacity: 0.6;
+}
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  align-items: center;
+  margin: 5px;
+  font-weight: bold;
+}
+.wishlist-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.price {
+  font-size: 15px;
+  margin: 5px;
+  font-weight: bold;
+}
+.card-btn {
+  background-color: var(--mainBlue);
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid var(--lightBlue);
+  color: var(--lightBlue);
+  opacity: 0.9;
+}
+.card-btn:hover {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+}
+.card-name {
+  max-width: 70%;
+}
+.rating {
+  font-size: 16px;
+  padding: 3px;
+  margin-right: 3px;
+  background-color: #ffd700;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 760p) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card-container {
+    width: auto;
+    min-width: 100px;
+  }
+}

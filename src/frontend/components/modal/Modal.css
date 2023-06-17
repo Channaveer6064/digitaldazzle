@@ -1,0 +1,30 @@
+.checkout-modal {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 250px;
+  z-index: 9999;
+  background-color: var(--bg-color);
+  padding: 2rem;
+}
+
+.modall-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.modal-close {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  font-size: larger;
+  border-radius: 5%;
+}

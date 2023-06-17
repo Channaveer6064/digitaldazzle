@@ -1,0 +1,19 @@
+.home-page-content {
+  display: flex;
+  justify-content: space-around;
+}
+.filters-container {
+  margin-left: 0;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 760px) {
+  .filters-container {
+    display: none;
+    margin-left: 0;
+  }
+}

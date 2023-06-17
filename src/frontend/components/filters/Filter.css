@@ -1,0 +1,38 @@
+.product-filter {
+}
+.product-filter-container {
+  display: flex;
+
+  flex-direction: column;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.04);
+  align-content: space-between;
+}
+.product-filter-category {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 15px;
+}
+product-filter-range {
+  padding: 10px;
+}
+.product-filter-price {
+  font-size: 15px;
+  padding: 10px;
+}
+.product-filter-rating {
+  padding: 10px;
+}
+.filter-btn {
+  margin: 5px;
+  background: transparent;
+  border: 0 solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+@media screen and(max-width: 480px) {
+  .product-filter {
+    display: none;
+  }
+}
