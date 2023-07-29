@@ -7,7 +7,8 @@ import { useAuth } from "../../contexts/auth-context";
 import { useCart } from "../../contexts/cart-context";
 const Card = ({ items }) => {
   // console.log(props);
-  const { user } = useAuth();
+  const { tokenVal, user } = useAuth();
+
   const { addItemToCart, cartData, removeItemFromCart } = useCart();
 
   const { addItemToWishlist, wishlist, RemoveItemFromWishlist } = useWishlist();
@@ -34,17 +35,7 @@ const Card = ({ items }) => {
             className="card-btn"
             onClick={() => {
               if (user.isUserLoggedIn) {
-                addItemToWishlist(items);
-                toast(" Wow so easy!", {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "light",
-                });
+                addItemToWishlist(items, tokenVal);
               } else {
                 alert("please login to continue");
               }
@@ -56,7 +47,7 @@ const Card = ({ items }) => {
           <button
             className="card-btn"
             onClick={() => {
-              RemoveItemFromWishlist(items._id);
+              RemoveItemFromWishlist(items._id, tokenVal);
               console.log(items._id);
             }}
           >

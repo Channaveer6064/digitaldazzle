@@ -9,7 +9,8 @@ const AuthProvider = ({ children }) => {
     tokenVal: localStorage.getItem("token"),
     user: localStorage.getItem("user"),
   });
-  console.log(user);
+  const { tokenVal } = user;
+  console.log(tokenVal);
 
   // const SignUpHandler = async (
   //   { firstName, lastName, email, password },
@@ -69,7 +70,7 @@ const AuthProvider = ({ children }) => {
     }
   };
   return (
-    <AuthContext.Provider value={{ user, setUser, SignUpHandler }}>
+    <AuthContext.Provider value={{ user, setUser, SignUpHandler, tokenVal }}>
       {children}
     </AuthContext.Provider>
   );

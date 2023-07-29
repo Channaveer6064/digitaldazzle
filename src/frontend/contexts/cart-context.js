@@ -4,65 +4,58 @@ import axios from "axios";
 import { updateCart } from "../services/updateCart";
 const CartContext = createContext();
 const CartProvider = ({ children }) => {
-  const { user } = useAuth();
+  const { user, tokenVal } = useAuth();
   const [cartData, setCartData] = useState([]);
-  const getCart = async (user) => {
+  const getCart = async (tokenVal) => {
     try {
       const response = await axios.get("/api/user/cart", {
         headers: {
-          authorization: user.tokenVal,
+          authorization: tokenVal,
         },
       });
-      setCartData(response?.data?.cart);
-      return response;
+      const arr = response?.data?.cart;
+      setCartData(arr);
     } catch (e) {
       console.log("getcart error", e);
     }
   };
-  const addToCart = async (product, user) => {
-    try {
-      const response = await axios.post(
-        "/api/user/cart",
-        { product },
-        {
-          headers: {
-            authorization: user.tokenVal,
-          },
-        }
-      );
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+  const addToCart = async (product, tokenVal) => {
+    return await axios.post(
+      "/api/user/cart",
+      { product },
+      {
+        headers: {
+          authorization: tokenVal,
+        },
+      }
+    );
   };
   const addItemToCart = async (product) => {
-    const response = await addToCart(product, user);
+    const response = await addToCart(product, tokenVal);
     setCartData(response?.data?.cart);
-    console.log(cartData);
   };
-  const removeItem = async (id, user) => {
-    try {
-      const { data } = await axios.delete(`/api/user/cart/${id}`, {
-        headers: {
-          authorization: user.tokenVal,
-        },
-      });
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+  const removeItem = async (id, tokenVal) => {
+    return await axios.delete(`/api/user/cart/${id}`, {
+      headers: {
+        authorization: tokenVal,
+      },
+    });
   };
   const removeItemFromCart = async (id) => {
-    const response = await removeItem(id, user);
-    if (response) setCartData(response?.cart);
+    try {
+      const response = await removeItem(id, user);
+      if (response) setCartData(response?.cart);
+    } catch (e) {
+      console.log("remove item from cart handler", e);
+    }
   };
   const updateCartValue = async (id, Action) => {
-    const updateItem = await updateCart(id, user, Action);
-    if (updateItem) setCartData(updateItem.cart);
+    const response = await updateCart(id, user, Action);
+    setCartData(response?.data?.cart);
   };
   useEffect(() => {
     getCart();
-  }, [user]);
+  }, [tokenVal]);
   console.log(cartData);
   return (
     <CartContext.Provider

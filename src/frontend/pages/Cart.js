@@ -16,7 +16,16 @@ export const Cart = () => {
   return (
     <div className="cart-container">
       <div>
-        <h1 style={{ margin: "10px" }}> Your Cart Items</h1>
+        <h1
+          style={{
+            margin: "10px",
+            alignSelf: "flex-start",
+            justifySelf: "flex-start",
+          }}
+        >
+          {" "}
+          Your Cart Items
+        </h1>
         {cartData.length != 0 ? (
           <div className="cart-items-container">
             {cartData.map((items) => (
@@ -25,7 +34,7 @@ export const Cart = () => {
                   <img src={items.image} className="cart-img" />
                 </div>
                 <div className="cart-content">
-                  <h2>Title: {items.title}</h2>
+                  <h2>Title: {items.name}</h2>
                   <p>
                     Description:
                     <br />

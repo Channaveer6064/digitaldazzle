@@ -6,51 +6,50 @@ const WishlistContext = createContext();
 
 const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
-  const { user } = useAuth();
+  const { tokenVal } = useAuth();
 
-  const AddtoWishlist = async (product, user) =>
+  const AddtoWishlistService = async (product, user) =>
     await axios.post(
       "/api/user/wishlist",
       { product },
       {
         headers: {
-          authorization: user.tokenVal,
+          authorization: tokenVal,
         },
       }
     );
 
-  const addItemToWishlist = async (product) => {
+  const addItemToWishlist = async (product, tokenVal) => {
     try {
-      const response = await AddtoWishlist(product, user);
-      console.log(response?.data?.wishlist);
-      setWishlist(response?.data?.wishlist);
-      console.log(wishlist);
+      const response = await AddtoWishlistService(product, tokenVal);
+      const arr = response?.data?.wishlist;
+      setWishlist(arr);
     } catch (error) {
-      console.log("error from addtowishlist", error);
+      console.log("addtowishlistHandler", error);
     }
   };
 
-  const getWishlist = async (user) => {
+  const getWishlist = async (tokenVal) => {
     try {
       const {
         data: { wishlist },
       } = await axios.get("api/user/wishlist", {
         headers: {
-          authorization: user.tokenVal,
+          authorization: tokenVal,
         },
       });
       setWishlist(wishlist);
-      console.log(wishlist);
+
       return wishlist;
     } catch (error) {
       console.error("getwishlist error", error);
     }
   };
-  const removeItem = async (id, user) => {
+  const removeItem = async (id, tokenVal) => {
     try {
       const { data } = await axios.delete(`/api/user/wishlist/${id}`, {
         headers: {
-          authorization: user.tokenVal,
+          authorization: tokenVal,
         },
       });
       return data;
@@ -59,12 +58,13 @@ const WishlistProvider = ({ children }) => {
     }
   };
   const RemoveItemFromWishlist = async (id) => {
-    const response = await removeItem(id, user);
-    if (response) setWishlist(response?.wishlist);
+    const response = await removeItem(id, tokenVal);
+    const arr = response?.data?.wishlist;
+    setWishlist(arr);
   };
   useEffect(() => {
-    getWishlist(user);
-  }, [user]);
+    getWishlist(tokenVal);
+  }, [tokenVal]);
 
   return (
     <WishlistContext.Provider
