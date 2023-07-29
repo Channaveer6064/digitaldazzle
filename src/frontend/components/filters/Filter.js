@@ -8,15 +8,15 @@ const Filter = ({ state, dispatch }) => {
   return (
     <div className="product-filter">
       <div className="product-filter-container">
-        <h4>filters</h4> <hr></hr>
-        <h4>filter by category</h4>
+        <h3>Filters</h3> <hr />
+        <h4>Filter by category</h4>
         <div className="product-filter-category">
           <input
             onChange={() => dispatch({ type: "mobiles" })}
             checked={showmobiles}
             type="checkbox"
           ></input>
-          Mobile Phones
+          <span>Mobile Phones</span>
         </div>
         <div className="product-filter-category">
           <input
@@ -24,7 +24,7 @@ const Filter = ({ state, dispatch }) => {
             checked={showlaptops}
             type="checkbox"
           ></input>
-          Laptops
+          <span>Laptops</span>
         </div>
         <div className="product-filter-category">
           <input
@@ -32,15 +32,10 @@ const Filter = ({ state, dispatch }) => {
             checked={showtelevision}
             type="checkbox"
           ></input>
-          Televison
+          <span>Televison</span>
         </div>
         <hr></hr>
-        <h4>filter by range</h4>
-        <div className="product-filter-range">
-          <input type="range" min="0" max="50" value="50"></input>
-        </div>{" "}
-        <hr></hr>
-        <h4>filter by price</h4>
+        <h4>Filter by price</h4>
         <div className="product-filter-price">
           <input
             name="sorting"
@@ -50,7 +45,7 @@ const Filter = ({ state, dispatch }) => {
             }
             checked={sortBy && sortBy === "Price_Low_To_High"}
           ></input>
-          Price_Low_To_High
+          <span>Price_Low_To_High</span>
         </div>{" "}
         <div className="product-filter-price">
           <input
@@ -61,17 +56,17 @@ const Filter = ({ state, dispatch }) => {
             }
             checked={sortBy && sortBy === "Price_High_To_Low"}
           ></input>
-          Price_High_To_Low
+          <span> Price_High_To_Low</span>
         </div>{" "}
         <hr></hr>
-        <h4>filter by rating</h4>
+        <h4>Filter by rating</h4>
         <div className="product-filter-rating">
           <input
             type="checkbox"
             onChange={() => dispatch({ type: "rating", payload: 5 })}
             checked={rating && rating === 5}
           ></input>
-          5 star
+          <span>5 star</span>
         </div>
         <div className="product-filter-rating">
           <input
@@ -79,7 +74,7 @@ const Filter = ({ state, dispatch }) => {
             onChange={() => dispatch({ type: "rating", payload: 4 })}
             checked={rating && rating === 4}
           ></input>
-          above 4 star
+          <span>above 4 star</span>
         </div>{" "}
         <div className="product-filter-rating">
           <input
@@ -87,7 +82,7 @@ const Filter = ({ state, dispatch }) => {
             onChange={() => dispatch({ type: "rating", payload: 3 })}
             checked={rating && rating === 3}
           ></input>
-          above 3 star
+          <span> above 3 star</span>
         </div>{" "}
         <div className="product-filter-rating">
           <input
@@ -95,7 +90,7 @@ const Filter = ({ state, dispatch }) => {
             onChange={() => dispatch({ type: "rating", payload: 2 })}
             checked={rating && rating === 2}
           ></input>
-          above 2 star
+          <span>above 2 star</span>
         </div>{" "}
         <div className="product-filter-rating">
           <input
@@ -103,14 +98,14 @@ const Filter = ({ state, dispatch }) => {
             onChange={() => dispatch({ type: "rating", payload: 1 })}
             checked={rating && rating === 1}
           ></input>
-          above 1 star
+          <span>above 1 star</span>
         </div>
         <hr></hr>
         <button
           className="filter-btn"
           onClick={() => dispatch({ type: "clear" })}
         >
-          clear filter
+          <strong>Clear Filter</strong>
         </button>
       </div>
     </div>

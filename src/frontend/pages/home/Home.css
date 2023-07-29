@@ -4,19 +4,21 @@
 }
 .hero-img-container {
   position: relative;
-  /* padding: 0 5px; */
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 .hero-content {
   position: absolute;
   top: 5rem;
   left: 2rem;
 }
-.hero-btn {
+.hero-content button {
   background-color: var(--lightBlue);
   border-bottom-left-radius: 0.5rem;
-  padding: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  margin-top: 10px;
   border: 1px solid var(--mainWhite);
+  cursor: pointer;
 }
 .home-category {
   display: flex;
@@ -41,7 +43,9 @@
   align-items: center;
   height: 200px;
   width: 200px;
-  border: 1px solid var(--lightBlue);
+  border-radius: 200px;
+  padding: 1rem;
+  border: 2px solid var(--lightBlue);
 }
 .category-items:hover {
   cursor: pointer;

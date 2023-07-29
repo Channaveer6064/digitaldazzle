@@ -1,12 +1,18 @@
 .product-filter {
+  height: 100vh;
 }
+
 .product-filter-container {
   display: flex;
-
+  height: 90vh;
   flex-direction: column;
   padding: 2rem;
   background-color: rgba(0, 0, 0, 0.04);
   align-content: space-between;
+  justify-content: space-between;
+}
+.product-filter-container span {
+  margin-left: 1rem;
 }
 .product-filter-category {
   display: flex;

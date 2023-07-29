@@ -5,12 +5,14 @@ import { TiStar } from "react-icons/ti";
 import { useWishlist } from "../../contexts/wishlist-context";
 import { useAuth } from "../../contexts/auth-context";
 import { useCart } from "../../contexts/cart-context";
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
+import { styled } from "@mui/material";
 const Card = ({ items }) => {
   // console.log(props);
+  const navigator = useNavigate();
   const { tokenVal, user } = useAuth();
-
   const { addItemToCart, cartData, removeItemFromCart } = useCart();
-
+  // console.log(`${items}`);
   const { addItemToWishlist, wishlist, RemoveItemFromWishlist } = useWishlist();
   return (
     <div className="card">

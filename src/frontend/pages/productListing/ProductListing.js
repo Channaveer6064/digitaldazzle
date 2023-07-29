@@ -23,7 +23,6 @@ const ProductListing = () => {
     var currItems = products;
   }
 
-  // console.log(ProductData);
   return (
     <div className="home-page-content">
       <div className="filters-container">

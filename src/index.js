@@ -9,15 +9,13 @@ import { FilterProvider } from "./frontend/contexts/filter-context";
 import { AuthProvider } from "./frontend/contexts/auth-context";
 import { WishlistProvider } from "./frontend/contexts/wishlist-context";
 import { CartProvider } from "./frontend/contexts/cart-context";
-
-// import { AddressProvider } from "./frontend/contexts/addressContext";
+import { AddressProvider } from "./frontend/contexts/addressContext";
 import { ModalProvider } from "./frontend/contexts/modalContext";
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <AuthProvider>
-    {/* <AddressProvider> */}
     <ModalProvider>
       <CartProvider>
         {" "}
@@ -25,14 +23,15 @@ ReactDOM.render(
           <ProductProvider>
             <Router>
               <WishlistProvider>
-                <App />
+                <AddressProvider>
+                  <App />
+                </AddressProvider>
               </WishlistProvider>
             </Router>
           </ProductProvider>
         </FilterProvider>
       </CartProvider>
     </ModalProvider>
-    {/* </AddressProvider> */}
   </AuthProvider>,
   document.getElementById("root")
 );

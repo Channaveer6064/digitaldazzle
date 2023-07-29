@@ -1,0 +1,40 @@
+.ordersuccess-container {
+  height: 72vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ordersuccess-content {
+  height: 70%;
+  width: 70%;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ordersuccess-content h1 {
+  color: var(--lightBlue);
+}
+.delivery-address {
+  align-self: flex-start;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+}
+.delivery-address p {
+  margin-top: 0.5rem;
+}
+.ordersuccess-content button {
+  margin-top: 2rem;
+  padding: 0.75rem;
+  background-color: var(--lightBlue);
+  color: white;
+  border: 1px solid var(--lightBlue);
+  border-radius: 8px;
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  .ordersuccess-container {
+    height: 56vh;
+  }
+}

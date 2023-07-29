@@ -1,16 +1,20 @@
-// import React from "react";
-// import { Children } from "react";
-// import { useState, createContext, useContext } from "react";
-// const AddressContext = createContext();
+import React from "react";
 
-// const AddressProvider = ({ Children }) => {
-//
-//   console.log(address);
-//   return (
-//     <AddressContext.Provider value={{ address, setAddress }}>
-//       {Children}
-//     </AddressContext.Provider>
-//   );
-// };
-// const useAddress = () => useContext(AddressContext);
-// export { AddressProvider, useAddress };
+import { useState, createContext, useContext } from "react";
+const AddressContext = createContext();
+
+const AddressProvider = ({ children }) => {
+  const [address, setAddress] = useState({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    deliveryAddress: "",
+  });
+  return (
+    <AddressContext.Provider value={{ address, setAddress }}>
+      {children}
+    </AddressContext.Provider>
+  );
+};
+const useAddress = () => useContext(AddressContext);
+export { AddressProvider, useAddress };

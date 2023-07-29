@@ -7,6 +7,7 @@
 }
 
 .product-list {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

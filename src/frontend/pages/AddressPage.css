@@ -1,7 +1,7 @@
 .address-container {
-  cursor: context-menu;
+  cursor: pointer;
   display: flex;
-  height: 100vh;
+  height: 73vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -12,35 +12,35 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.2);
   max-width: max-content;
-  height: 60vh;
+  height: 70vh;
+  width: 70vw;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   position: relative;
 }
+.address-container input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--lightBlue);
+  border-radius: 8px;
+}
 .address-header {
   position: absolute;
-  top: 10px;
+  top: 1.5rem;
   font-weight: 600;
   font-size: x-large;
 }
-address-input {
-  position: absolute;
 
-  align-items: center;
-  font-size: 15px;
-  justify-content: center;
-  border: 1px solid var(--lightBlue);
-  padding: 5px;
-}
-.addressPage-btn {
+.address-btn {
   background-color: var(--lightBlue);
-  width: 8rem !important;
-  height: 2rem;
-  color: black;
+  color: var(--mainWhite);
   cursor: pointer;
-  margin-top: 1rem;
-  border: 2px solid var(--lightBlue);
+  margin-top: 2rem;
+  border: 1px solid var(--lightBlue);
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  width: 50%;
 }
 .addressPage-btn:hover {
   transform: rotateX("18");
