@@ -9,6 +9,10 @@
   padding: 1.5rem;
   background: var(--mainBlue);
 }
+.footer-container a {
+  text-decoration: none;
+  color: var(--lightBlue);
+}
 .social-media {
   margin-top: 1rem;
   margin-left: 1rem;

@@ -10,9 +10,9 @@ import { useCart } from "../../contexts/cart-context";
 
 const Header = () => {
   const { user, setUser } = useAuth();
-  const { wishlist } = useWishlist();
-  const { cartData } = useCart();
-
+  const { wishlist, setWishlist } = useWishlist();
+  const { cartData, setCartData } = useCart();
+  const empty = [];
   return (
     <div className="header-container">
       <div className="navbar-brand">
@@ -69,7 +69,11 @@ const Header = () => {
             <Link
               className="navbar-links"
               to="/"
-              onClick={() => LogoutHandler(setUser)}
+              onClick={() => {
+                LogoutHandler(setUser);
+                // setCartData(empty);
+                // setWishlist(empty);
+              }}
               style={{ color: "var(--lightBlue)" }}
             >
               logout

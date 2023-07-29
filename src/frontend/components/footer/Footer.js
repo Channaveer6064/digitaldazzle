@@ -9,19 +9,24 @@ export const Footer = () => {
         <h3>Connect with me @Channaveer</h3>
       </div>
       <div>
-        <BiEnvelope style={{ "font-size": "25px" }} className="social-media" />{" "}
-        <IoLogoGithub
-          style={{ "font-size": "25px" }}
-          className="social-media"
-        />{" "}
-        <IoLogoLinkedin
-          style={{ "font-size": "25px" }}
-          className="social-media"
-        />{" "}
-        <IoLogoWhatsapp
-          style={{ "font-size": "25px" }}
-          className="social-media"
-        />{" "}
+        <a href="mailto:channaveertadkal6064@gmail.com">
+          <BiEnvelope
+            style={{ "font-size": "25px" }}
+            className="social-media"
+          />{" "}
+        </a>
+        <a href="https://github.com/Channaveer6064">
+          <IoLogoGithub
+            style={{ "font-size": "25px" }}
+            className="social-media"
+          />{" "}
+        </a>
+        <a href="https://www.linkedin.com/in/channaveer-tadkal-806982221/">
+          <IoLogoLinkedin
+            style={{ "font-size": "25px" }}
+            className="social-media"
+          />{" "}
+        </a>
       </div>
     </div>
   );

@@ -56,7 +56,6 @@ const CartProvider = ({ children }) => {
   useEffect(() => {
     getCart();
   }, [tokenVal]);
-  console.log(cartData);
   return (
     <CartContext.Provider
       value={{ addItemToCart, cartData, removeItemFromCart, updateCartValue }}
