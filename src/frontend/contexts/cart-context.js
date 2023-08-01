@@ -4,7 +4,7 @@ import axios from "axios";
 import { updateCart } from "../services/updateCart";
 const CartContext = createContext();
 const CartProvider = ({ children }) => {
-  const { user, tokenVal } = useAuth();
+  const { user, tokenVal, isUserLoggedIn } = useAuth();
   const [cartData, setCartData] = useState([]);
   const getCart = async (tokenVal) => {
     try {
@@ -53,12 +53,23 @@ const CartProvider = ({ children }) => {
     const response = await updateCart(id, user, Action);
     setCartData(response?.data?.cart);
   };
+  const emptyCart = (isUserLoggedIn) => {
+    if (!isUserLoggedIn) {
+      setCartData([]);
+    }
+  };
   useEffect(() => {
     getCart();
   }, [tokenVal]);
   return (
     <CartContext.Provider
-      value={{ addItemToCart, cartData, removeItemFromCart, updateCartValue }}
+      value={{
+        addItemToCart,
+        cartData,
+        removeItemFromCart,
+        updateCartValue,
+        emptyCart,
+      }}
     >
       {children}
     </CartContext.Provider>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useWishlist } from "../contexts/wishlist-context";
 export const LogInHandler = async ({ email, password }, setUser, navigator) => {
   try {
     const { data, status } = await axios.post("/api/auth/login", {

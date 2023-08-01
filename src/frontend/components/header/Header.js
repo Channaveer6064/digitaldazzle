@@ -10,8 +10,8 @@ import { useCart } from "../../contexts/cart-context";
 
 const Header = () => {
   const { user, setUser } = useAuth();
-  const { wishlist, setWishlist } = useWishlist();
-  const { cartData, setCartData } = useCart();
+  const { wishlist, emptyWishlistService } = useWishlist();
+  const { cartData, emptyCart } = useCart();
   const empty = [];
   return (
     <div className="header-container">
@@ -71,8 +71,7 @@ const Header = () => {
               to="/"
               onClick={() => {
                 LogoutHandler(setUser);
-                // setCartData(empty);
-                // setWishlist(empty);
+                emptyWishlistService();
               }}
               style={{ color: "var(--lightBlue)" }}
             >

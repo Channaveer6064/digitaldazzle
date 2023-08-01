@@ -6,7 +6,7 @@ const WishlistContext = createContext();
 
 const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
-  const { tokenVal } = useAuth();
+  const { tokenVal, isUserLoggedIn } = useAuth();
 
   const AddtoWishlistService = async (product, user) =>
     await axios.post(
@@ -62,6 +62,11 @@ const WishlistProvider = ({ children }) => {
     const arr = response?.data?.wishlist;
     setWishlist(arr);
   };
+  const emptyWishlistService = (isUserLoggedIn) => {
+    if (!isUserLoggedIn) {
+      setWishlist([]);
+    }
+  };
   useEffect(() => {
     getWishlist(tokenVal);
   }, [tokenVal]);
@@ -73,6 +78,7 @@ const WishlistProvider = ({ children }) => {
         setWishlist,
         addItemToWishlist,
         RemoveItemFromWishlist,
+        emptyWishlistService,
       }}
     >
       {children}
